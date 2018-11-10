@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">jokesAndroidLib</string>
+    <string name="jokeEnvelope">joke_Envelope</string>
+</resources>
