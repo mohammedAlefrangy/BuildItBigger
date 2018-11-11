@@ -24,7 +24,7 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
 
     @Override
     protected String doInBackground(Context... contexts) {
-        if(ApiService == null) {  // Only do this once
+        if (ApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
                     // options for running against local devappserver
@@ -47,14 +47,14 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
         try {
             return ApiService.getJoke().execute().getData();
         } catch (IOException e) {
-            return "Please check internet connection or check backend online";
+            return null;
         }
     }
 
     @Override
     protected void onPostExecute(String s) {
         final Intent intent = new Intent(context, activity_display_joke.class);
-        intent.putExtra("result",s);
+        intent.putExtra("result", s);
         context.startActivity(intent);
     }
 }

@@ -31,11 +31,11 @@ public class EndPointAsyncTaskTest extends AndroidTestCase {
 
     @Test
     public void testJokeIsNotEmpty() throws Exception {
-        EndpointsAsyncTask endpointsAsyncTask =  new EndpointsAsyncTask();
+        EndpointsAsyncTask endpointsAsyncTask = new EndpointsAsyncTask();
         endpointsAsyncTask.execute(InstrumentationRegistry.getTargetContext());
         String joke = endpointsAsyncTask.get();
 //        String joke = endpointsAsyncTask.get(20, TimeUnit.SECONDS);
-        Assert.assertTrue(joke.equals("Please check internet connection or check backend online"));
+        Assert.assertNotNull(joke);
     }
 
     @Test
