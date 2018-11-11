@@ -32,7 +32,7 @@ public class EndPointAsyncTaskTest extends AndroidTestCase {
     @Test
     public void testJokeIsNotEmpty() throws Exception {
         EndpointsAsyncTask endpointsAsyncTask =  new EndpointsAsyncTask();
-        endpointsAsyncTask.execute(InstrumentationRegistry.getContext());
+        endpointsAsyncTask.execute(InstrumentationRegistry.getTargetContext());
         String joke = endpointsAsyncTask.get(5, TimeUnit.SECONDS);
         Assert.assertTrue(!joke.equals(""));
     }
@@ -41,6 +41,6 @@ public class EndPointAsyncTaskTest extends AndroidTestCase {
     public void testVerifyResponse() {
 
         onView(withId(R.id.button)).perform(click());
-        onView(withId(R.id.instructions_text_view)).check(matches(isDisplayed()));
+        onView(withId(R.id.text_joke)).check(matches(isDisplayed()));
     }
 }
